@@ -9,6 +9,7 @@ Target "CreatePackage" (fun _ ->
     !! ( outputPath </> "*.*Tests.*" )
     ++ ( outputPath </> "*nunit*" )
     ++ ( outputPath </> "TestResult.xml" )
+    ++ ( outputPath </> "Plainion.RI.*" )
     ++ ( outputPath </> "**/*.pdb" )
     |> DeleteFiles
 
