@@ -13,7 +13,7 @@ Target "CreatePackage" (fun _ ->
     |> DeleteFiles
 
     [
-        ( projectName + ".*", Some "build", None)
+        ( projectName + ".*", Some "lib/NET45", None)
     ]
     |> PNuGet.Pack (projectRoot </> "build" </> projectName + ".nuspec") (projectRoot </> "pkg")
 )
