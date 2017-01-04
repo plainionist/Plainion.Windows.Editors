@@ -18,7 +18,11 @@ Target "CreatePackage" (fun _ ->
     |> PNuGet.Pack (projectRoot </> "build" </> projectName + ".nuspec") (projectRoot </> "pkg")
 )
 
-Target "DeployPackage" (fun _ ->
+Target "Deploy" (fun _ ->
+    trace "Nothing to deploy"
+)
+
+Target "Publish" (fun _ ->
     PNuGet.PublishPackage projectName (projectRoot </> "pkg")
 )
 
