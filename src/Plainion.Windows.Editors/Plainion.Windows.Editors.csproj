@@ -41,6 +41,9 @@
     <Compile Include="Properties\AssemblyDefs.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <AppDesigner Include="Properties\" />
     <Compile Include="Xml\AbstractCompletionData.cs" />
     <Compile Include="Xml\PropertyElementCompletionData.cs" />
