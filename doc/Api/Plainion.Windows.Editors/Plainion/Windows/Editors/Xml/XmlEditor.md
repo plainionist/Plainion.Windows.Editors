@@ -24,7 +24,7 @@ XmlEditor
 
 ### ICSharpCode.AvalonEdit.Document.TextDocument Document
 
-### System.Collections.Generic.IEnumerable`1[[Plainion.Windows.Editors.Xml.ElementCompletionData, Plainion.Windows.Editors, Version=1.2.0.0, Culture=neutral, PublicKeyToken=11fdbc7b87b9a0de]] CompletionData
+### System.Collections.Generic.IEnumerable`1[[Plainion.Windows.Editors.Xml.ElementCompletionData, Plainion.Windows.Editors, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null]] CompletionData
 
 
 ## Methods
