@@ -13,4 +13,4 @@
 
 ## Properties
 
-### System.Collections.Generic.List`1[[Plainion.RI.Editors.Spec.Cluster, Plainion.RI, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null]] Clusters
+### System.Collections.Generic.List`1[[Plainion.RI.Editors.Spec.Cluster, Plainion.RI, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null]] Clusters

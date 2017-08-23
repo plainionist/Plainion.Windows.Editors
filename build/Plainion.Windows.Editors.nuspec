@@ -14,9 +14,7 @@
       @releaseNotes@
     </releaseNotes>
     <copyright>Copyright 2017</copyright>
-    <dependencies>
-      <dependency id="AvalonEdit" version="5.0.2" />
-    </dependencies>
+    @dependencies@
   </metadata>
   @files@
 </package>

@@ -1,3 +1,7 @@
+## 2.1.0 - 2017-08-23
+
+- nuspec dependencies fixed
+
 ## 2.0.0 - 2017-08-23
 
 - dependencies updated

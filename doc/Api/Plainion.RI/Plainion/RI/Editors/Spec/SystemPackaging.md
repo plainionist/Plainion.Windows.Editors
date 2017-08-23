@@ -15,4 +15,4 @@
 
 ### System.String AssemblyRoot
 
-### System.Collections.Generic.List`1[[Plainion.RI.Editors.Spec.Package, Plainion.RI, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null]] Packages
+### System.Collections.Generic.List`1[[Plainion.RI.Editors.Spec.Package, Plainion.RI, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null]] Packages
