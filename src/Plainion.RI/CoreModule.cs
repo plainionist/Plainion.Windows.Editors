@@ -1,20 +1,20 @@
-﻿using System.ComponentModel.Composition;
-using Plainion.RI.Editors;
-using Prism.Mef.Modularity;
+﻿using Plainion.RI.Editors;
+using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 
 namespace Plainion.RI
 {
-    [ModuleExport( typeof( CoreModule ) )]
     class CoreModule : IModule
     {
-        [Import]
-        public IRegionManager RegionManager { get; private set; }
-
-        public void Initialize()
+        public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            RegionManager.RegisterViewWithRegion( RegionNames.Editors, typeof( XmlEditorView ) );
+        }
+
+        public void OnInitialized(IContainerProvider containerProvider)
+        {
+            var regionManager = containerProvider.Resolve<IRegionManager>();
+            regionManager.RegisterViewWithRegion( RegionNames.Editors, typeof( XmlEditorView ) );
         }
     }
 }

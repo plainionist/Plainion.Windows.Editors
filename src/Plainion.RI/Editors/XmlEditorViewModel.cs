@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.Composition;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using ICSharpCode.AvalonEdit.Document;
@@ -9,7 +8,6 @@ using Prism.Mvvm;
 
 namespace Plainion.RI.Editors
 {
-    [Export]
     class XmlEditorViewModel : BindableBase
     {
         private TextDocument myDocument;

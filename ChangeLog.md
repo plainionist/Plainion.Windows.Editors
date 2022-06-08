@@ -1,3 +1,7 @@
+## 3.0 - 2022-06-08
+
+- Migrated to .Net 6
+
 ## 2.1.0 - 2017-08-23
 
 - nuspec dependencies fixed

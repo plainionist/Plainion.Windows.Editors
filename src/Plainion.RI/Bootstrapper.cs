@@ -1,66 +1,69 @@
-﻿using System.ComponentModel.Composition.Hosting;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using Plainion.Logging;
 using Plainion.Prism.Interactivity;
 using Plainion.Prism.Regions;
 using Prism.Interactivity;
-using Prism.Mef;
+using Prism.Modularity;
 using Prism.Regions;
+using Prism.Regions.Behaviors;
+using Prism.Unity;
+using Unity;
+using Unity.Lifetime;
 
 namespace Plainion.RI
 {
-    class Bootstrapper : MefBootstrapper
+    class Bootstrapper : UnityBootstrapper
     {
         protected override DependencyObject CreateShell()
         {
-            return Container.GetExportedValue<Shell>();
+            return Container.Resolve<Shell>();
         }
 
         protected override void InitializeShell()
         {
             base.InitializeShell();
 
-            Application.Current.MainWindow = ( Window )Shell;
+            Application.Current.MainWindow = (Window)Shell;
             Application.Current.MainWindow.Show();
         }
 
-        protected override void ConfigureAggregateCatalog()
+        protected override void ConfigureModuleCatalog()
         {
-            base.ConfigureAggregateCatalog();
+            base.ConfigureModuleCatalog();
 
-            AggregateCatalog.Catalogs.Add( new AssemblyCatalog( GetType().Assembly ) );
-            AggregateCatalog.Catalogs.Add( new TypeCatalog( typeof( StackPanelRegionAdapter ) ) );
-
-            AggregateCatalog.Catalogs.Add( new TypeCatalog( typeof( PopupWindowActionRegionAdapter ) ) );
-            AggregateCatalog.Catalogs.Add( new TypeCatalog( typeof( KeepAliveDelayedRegionCreationBehavior ) ) );
+            ModuleCatalog.AddModule(new ModuleInfo(typeof(CoreModule).Name, typeof(CoreModule).AssemblyQualifiedName));
         }
 
-        protected override CompositionContainer CreateContainer()
+        protected override void ConfigureContainer()
         {
-            return new CompositionContainer( AggregateCatalog, CompositionOptions.DisableSilentRejection );
+            base.ConfigureContainer();
+
+            Container.RegisterType<StackPanelRegionAdapter, StackPanelRegionAdapter>();
+            Container.RegisterType<PopupWindowActionRegionAdapter, PopupWindowActionRegionAdapter>();
+            Container.RegisterType<DelayedRegionCreationBehavior, KeepAliveDelayedRegionCreationBehavior>(new TransientLifetimeManager());
         }
 
         protected override RegionAdapterMappings ConfigureRegionAdapterMappings()
         {
             var mappings = base.ConfigureRegionAdapterMappings();
 
-            mappings.RegisterMapping( typeof( StackPanel ), Container.GetExportedValue<StackPanelRegionAdapter>() );
-            mappings.RegisterMapping( typeof( PopupWindowAction ), Container.GetExportedValue<PopupWindowActionRegionAdapter>() );
+            mappings.RegisterMapping(typeof(StackPanel), Container.Resolve<StackPanelRegionAdapter>());
+            mappings.RegisterMapping(typeof(PopupWindowAction), Container.Resolve<PopupWindowActionRegionAdapter>());
 
             return mappings;
         }
 
-        public override void Run( bool runWithDefaultConfiguration )
+        public override void Run(bool runWithDefaultConfiguration)
         {
-            base.Run( runWithDefaultConfiguration );
+            base.Run(runWithDefaultConfiguration);
 
             Application.Current.Exit += OnShutdown;
         }
 
-        protected virtual void OnShutdown( object sender, ExitEventArgs e )
+        protected virtual void OnShutdown(object sender, ExitEventArgs e)
         {
             Container.Dispose();
         }
+
     }
 }

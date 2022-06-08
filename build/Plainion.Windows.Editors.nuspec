@@ -7,7 +7,7 @@
     <authors>ronin4net</authors>
     <owners>ronin4net</owners>
     <licenseUrl>http://opensource.org/licenses/BSD-3-Clause</licenseUrl>
-    <projectUrl>https://github.com/ronin4net/Plainion/wiki/Plainion.Windows</projectUrl>
+    <projectUrl>https://github.com/plainionist/Plainion.Windows.Editors</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Simple editor controls to support DSLs in WPF applications</description>
     <releaseNotes>
